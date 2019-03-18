@@ -14,7 +14,7 @@ class CreateCasesTable extends Migration
     public function up()
     {
         Schema::create('cases', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('case_type_id')->unsigned()->index();
             $table->string('case_short_name');
             $table->string('case_full_name');
