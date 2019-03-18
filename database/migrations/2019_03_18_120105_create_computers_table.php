@@ -15,7 +15,7 @@ class CreateComputersTable extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('person_id');
+            $table->integer('person_id')->unsigned()->index();;
             $table->string('mac_address',45);
             $table->string('computer_type');
             $table->string('OS',45);
@@ -23,6 +23,7 @@ class CreateComputersTable extends Migration
             $table->dateTime('request_date');
             $table->dateTime('approved_date');
             $table->timestamps();
+            $table->foreign('person_id')->references('id')->on('personnel')->onDelete('cascade');
         });
     }
 

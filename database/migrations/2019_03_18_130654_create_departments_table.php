@@ -14,11 +14,12 @@ class CreateDepartmentsTable extends Migration
     public function up()
     {
         Schema::create('departments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('calendar_id');
+            $table->increments('id');
+            $table->integer('calendar_id')->unsigned()->index();
             $table->string('court_name');
             $table->string('department_name');
             $table->string('judge_name');
+            $table->foreign('calendar_id')->references('id')->on('calendars')->onDelete('cascade');
         });
     }
 

@@ -14,10 +14,11 @@ class CreateCalendarsTable extends Migration
     public function up()
     {
         Schema::create('calendars', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('calendar_name');
             $table->string('description', 45);
             $table->enum('modifyable', [0, 1]);
+
         });
     }
 
