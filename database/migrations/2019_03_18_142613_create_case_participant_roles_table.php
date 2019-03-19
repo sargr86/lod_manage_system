@@ -15,9 +15,9 @@ class CreateCaseParticipantRolesTable extends Migration
     {
         Schema::create('case_participant_roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('person_id');
-            $table->integer('case_id');
-            $table->integer('role_id');
+            $table->integer('person_id')->unsigned()->index();
+            $table->integer('case_id')->unsigned()->index();
+            $table->integer('role_id')->unsigned()->index();
 //            $table->enum('side',[]);
             $table->dateTime('start_date');
             $table->dateTime('end_date');

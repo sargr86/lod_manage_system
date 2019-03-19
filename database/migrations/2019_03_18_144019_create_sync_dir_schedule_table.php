@@ -14,9 +14,9 @@ class CreateSyncDirScheduleTable extends Migration
     public function up()
     {
         Schema::create('sync_dir_schedule', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('person_id');
-            $table->integer('computer_id');
+            $table->increments('id');
+            $table->integer('person_id')->unsigned()->index();
+            $table->integer('computer_id')->unsigned()->index();
             $table->string('directory_name',45);
             $table->foreign('person_id')->references('id')->on('personnel')->onDelete('cascade');
             $table->foreign('computer_id')->references('id')->on('computers')->onDelete('cascade');
