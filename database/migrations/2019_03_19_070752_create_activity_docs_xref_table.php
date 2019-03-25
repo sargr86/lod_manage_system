@@ -16,14 +16,15 @@ class CreateActivityDocsXrefTable extends Migration
         Schema::create('activity_docs_xref', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('doc_id')->unsigned()->index();
-            $table->integer('relation_type_id')->unsigned()->index();
+            $table->string('relation_type',10);
             $table->integer('case_id')->unsigned()->index();
             $table->integer('activity_id')->unsigned()->index();
-            $table->integer('activity_type_id')->unsigned()->index();
-            $table->foreign('relation_type_id')->references('id')->on('relation_types')->onDelete('cascade');
-            $table->foreign('case_id')->references('id')->on('cases')->onDelete('cascade');
-            $table->foreign('activity_type_id')->references('id')->on('activity_types')->onDelete('cascade');
-            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
+            $table->string('activity_type', 45);
+//            $table->foreign('relation_type')->references('relation_type_name')->on('relation_types')->onDelete('cascade');
+//            $table->foreign('doc_id')->references('id')->on('documents')->onDelete('cascade');
+//            $table->foreign('case_id')->references('id')->on('cases')->onDelete('cascade');
+//            $table->foreign('activity_type')
+//            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
         });
     }
 

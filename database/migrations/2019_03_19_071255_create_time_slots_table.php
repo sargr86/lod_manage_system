@@ -25,7 +25,7 @@ class CreateTimeSlotsTable extends Migration
             $table->foreign('calendar_id')->references('id')->on('calendars')->onDelete('cascade');
             $table->foreign('case_id')->references('id')->on('cases')->onDelete('cascade');
             $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
-            $table->foreign('activity_type_id')->references('id')->on('activity_types')->onDelete('cascade');
+//            $table->foreign('activity_type_id')->references('id')->on('activity_types')->onDelete('cascade');
         });
     }
 

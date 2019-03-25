@@ -16,14 +16,14 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('case_id')->unsigned()->index();
-            $table->integer('activity_type_id')->unsigned()->index();
+            $table->string('activity_type_id');
             $table->string('activity_name',100);
 //            $table->enum('owner',[])
             $table->text('comments');
             $table->string('tentative_calendar_name',20);
             $table->date('tentative_date');
             $table->foreign('case_id')->references('id')->on('cases')->onDelete('cascade');
-            $table->foreign('activity_type_id')->references('id')->on('activity_types')->onDelete('cascade');
+//            $table->foreign('activity_type_id')->references('id')->on('activity_types')->onDelete('cascade');
         });
     }
 
